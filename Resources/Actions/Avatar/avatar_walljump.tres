@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Action" load_steps=2 format=3 uid="uid://bne4xg0yspuw6"]
+
+[ext_resource type="Script" path="res://Resources/System/Action.gd" id="1_i6cgf"]
+
+[resource]
+script = ExtResource("1_i6cgf")
+name = "move"
+range = []
+type = 0
+speed = 1
+aoe = []
+power = 0

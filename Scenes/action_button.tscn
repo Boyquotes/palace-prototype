@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://dlq6ga43myb8d"]
+
+[ext_resource type="Script" path="res://Scenes/action_button.gd" id="1_2aecf"]
+[ext_resource type="Theme" uid="uid://enige5dquqlv" path="res://Resources/Themes/action_button.tres" id="1_e2lo1"]
+
+[node name="ActionButton" type="Button"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -560.0
+offset_bottom = -280.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+theme = ExtResource("1_e2lo1")
+text = "move!"
+script = ExtResource("1_2aecf")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

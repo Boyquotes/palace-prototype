@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Action" load_steps=3 format=3 uid="uid://dbvcm7o6nv216"]
+
+[ext_resource type="Script" path="res://Resources/System/Action.gd" id="1_pavlr"]
+[ext_resource type="Theme" uid="uid://enige5dquqlv" path="res://Resources/Themes/action_button.tres" id="1_rb5br"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("1_pavlr")
+name = "punch"
+range = [Vector2(1, 0), Vector2(0, 0)]
+type = 1
+button_theme = ExtResource("1_rb5br")
+speed = 1
+aoe = []
+power = 0

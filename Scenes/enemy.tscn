@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://dhc1stpa52ni6"]
+
+[ext_resource type="Texture2D" uid="uid://dx5ggr27ymaem" path="res://Assets/Sprites/hand_smaller.png" id="1_jtg63"]
+[ext_resource type="Script" path="res://Scenes/enemy.gd" id="2_x453i"]
+
+[node name="enemy" type="Sprite2D"]
+texture = ExtResource("1_jtg63")
+script = ExtResource("2_x453i")

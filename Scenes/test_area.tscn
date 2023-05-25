@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://b0d4ijynewwyf"]
+
+[ext_resource type="Texture2D" uid="uid://b0l1lmvntg6t2" path="res://Assets/Sprites/hand.png" id="2_lv5fe"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uatfu"]
+size = Vector2(640, 20)
+
+[node name="test_area" type="Node2D"]
+
+[node name="floor" type="StaticBody2D" parent="."]
+position = Vector2(13, 346)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="floor"]
+position = Vector2(310, 0)
+shape = SubResource("RectangleShape2D_uatfu")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(372, 275)
+texture = ExtResource("2_lv5fe")

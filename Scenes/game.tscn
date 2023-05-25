@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://deftgni2bgak"]
+
+[node name="game" type="Node2D"]

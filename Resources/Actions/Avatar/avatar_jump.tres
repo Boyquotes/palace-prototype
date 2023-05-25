@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Action" load_steps=3 format=3 uid="uid://dqf852rd22rws"]
+
+[ext_resource type="Theme" uid="uid://enige5dquqlv" path="res://Resources/Themes/action_button.tres" id="1_tckm3"]
+[ext_resource type="Script" path="res://Resources/System/Action.gd" id="1_xeth1"]
+
+[resource]
+script = ExtResource("1_xeth1")
+name = "jump"
+range = [Vector2(1, 0), Vector2(1, -1), Vector2(0, -1), Vector2(0, 0), Vector2(-1, 0), Vector2(-1, -1)]
+type = 0
+button_theme = ExtResource("1_tckm3")
+speed = 1
+aoe = []
+power = 0

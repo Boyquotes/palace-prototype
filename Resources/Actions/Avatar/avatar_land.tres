@@ -1,12 +1,14 @@
-[gd_resource type="Resource" script_class="Action" load_steps=2 format=3 uid="uid://c8ybmf1r3g4ds"]
+[gd_resource type="Resource" script_class="Action" load_steps=3 format=3 uid="uid://gubkgxe0syro"]
 
+[ext_resource type="Theme" uid="uid://ceswfvs2utoi0" path="res://Resources/Themes/Avatar Actions/avatar_land_button.tres" id="1_khrah"]
 [ext_resource type="Script" path="res://Resources/System/Action.gd" id="1_qf647"]
 
 [resource]
 script = ExtResource("1_qf647")
-name = "move"
-range = []
+name = "land"
+range = [Vector2(1, 1)]
 type = 0
+button_theme = ExtResource("1_khrah")
 speed = 1
 aoe = []
 power = 0

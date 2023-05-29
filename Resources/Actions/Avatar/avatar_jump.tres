@@ -1,14 +1,14 @@
-[gd_resource type="Resource" script_class="Action" load_steps=3 format=3 uid="uid://dqf852rd22rws"]
+[gd_resource type="Resource" script_class="Action" load_steps=3 format=3 uid="uid://ct2laibk0gsnr"]
 
-[ext_resource type="Theme" uid="uid://enige5dquqlv" path="res://Resources/Themes/action_button.tres" id="1_tckm3"]
+[ext_resource type="Theme" uid="uid://dsmhxu6te416e" path="res://Resources/Themes/Avatar Actions/avatar_jump_button.tres" id="1_e0nci"]
 [ext_resource type="Script" path="res://Resources/System/Action.gd" id="1_xeth1"]
 
 [resource]
 script = ExtResource("1_xeth1")
 name = "jump"
-range = [Vector2(1, 0), Vector2(1, -1), Vector2(0, -1), Vector2(0, 0), Vector2(-1, 0), Vector2(-1, -1)]
+range = [Vector2(1, -1), Vector2(0, -1), Vector2(-1, -1)]
 type = 0
-button_theme = ExtResource("1_tckm3")
+button_theme = ExtResource("1_e0nci")
 speed = 1
 aoe = []
 power = 0

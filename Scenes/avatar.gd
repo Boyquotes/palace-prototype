@@ -3,11 +3,11 @@ extends AnimatedSprite2D
 const ACTIONS = {MOVE = preload('res://Resources/Actions/Avatar/avatar_move.tres'),
 				PUNCH = preload('res://Resources/Actions/Avatar/avatar_punch.tres'),
 				JUMP = preload('res://Resources/Actions/Avatar/avatar_jump.tres'),
-				JUMP_ATTACK = preload('res://Resources/Actions/Avatar/avatar_punch.tres'),
-				LAND = preload('res://Resources/Actions/Avatar/avatar_punch.tres'),
-				WALL_JUMP = preload('res://Resources/Actions/Avatar/avatar_punch.tres'),
-				SLIDE = preload('res://Resources/Actions/Avatar/avatar_punch.tres'),
-				RECOVER = preload('res://Resources/Actions/Avatar/avatar_punch.tres')}
+				JUMP_ATTACK = preload('res://Resources/Actions/Avatar/avatar_jumpattack.tres'),
+				LAND = preload('res://Resources/Actions/Avatar/avatar_land.tres'),
+				WALL_JUMP = preload('res://Resources/Actions/Avatar/avatar_walljump.tres'),
+				SLIDE = preload('res://Resources/Actions/Avatar/avatar_slide.tres'),
+				RECOVER = preload('res://Resources/Actions/Avatar/avatar_recover.tres')}
 
 var grid_pos : Vector2
 var unit_info : UnitInfo
@@ -23,6 +23,9 @@ func _ready():
 	animation = &"idle"
 
 # need different trajectories depending on jump or run
+
+func get_action_range(action):
+	pass
 
 # move, deal damage, animation
 func perform_action(action, _grid_pos):
@@ -52,6 +55,26 @@ func perform_action(action, _grid_pos):
 			state = Constants.UNIT_STATES.IN_AIR
 			frame = 0
 			play("jump")
+			move_straight(Global.grid_to_tile[_grid_pos].global_position, 75)
+			
+			Global.units[grid_pos] = null
+			Global.units[tile.grid_pos] = self
+			grid_pos = tile.grid_pos
+			
+		ACTIONS.JUMP_ATTACK:
+			state = Constants.UNIT_STATES.IDLE
+			frame = 0
+			play("punch")
+			move_straight(Global.grid_to_tile[_grid_pos].global_position, 75)
+			
+			Global.units[grid_pos] = null
+			Global.units[tile.grid_pos] = self
+			grid_pos = tile.grid_pos
+			
+		ACTIONS.LAND:
+			state = Constants.UNIT_STATES.IDLE
+			frame = 0
+			play("land")
 			move_straight(Global.grid_to_tile[_grid_pos].global_position, 75)
 			
 			Global.units[grid_pos] = null

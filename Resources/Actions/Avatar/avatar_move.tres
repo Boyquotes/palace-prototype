@@ -1,7 +1,7 @@
-[gd_resource type="Resource" script_class="Action" load_steps=3 format=3 uid="uid://cyd3cet2oq4k5"]
+[gd_resource type="Resource" script_class="Action" load_steps=3 format=3 uid="uid://cp31njv5ctxf5"]
 
-[ext_resource type="Theme" uid="uid://enige5dquqlv" path="res://Resources/Themes/action_button.tres" id="1_6uxx6"]
 [ext_resource type="Script" path="res://Resources/System/Action.gd" id="1_8vhlw"]
+[ext_resource type="Theme" uid="uid://enige5dquqlv" path="res://Resources/Themes/Avatar Actions/action_button.tres" id="1_a5qvs"]
 
 [resource]
 resource_local_to_scene = true
@@ -9,7 +9,7 @@ script = ExtResource("1_8vhlw")
 name = "move"
 range = [Vector2(1, 0), Vector2(2, 0), Vector2(-1, 0), Vector2(-2, 0)]
 type = 0
-button_theme = ExtResource("1_6uxx6")
+button_theme = ExtResource("1_a5qvs")
 speed = 1
 aoe = []
 power = 0

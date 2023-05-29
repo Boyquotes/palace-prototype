@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://cmd26sm0i3cgm"]
+
+[ext_resource type="Texture2D" uid="uid://d3yyjppc5anwq" path="res://Assets/Sprites/buttons/move_button_tex.png" id="1_31dpd"]
+[ext_resource type="Texture2D" uid="uid://co774worj4pv4" path="res://Assets/Sprites/buttons/move_button_selected_tex.png" id="2_yryx1"]
+[ext_resource type="Texture2D" uid="uid://bsc7vw0vwn5tl" path="res://Assets/Sprites/buttons/move_button_hovered_tex.png" id="3_uof8p"]
+
+[node name="action_button2" type="TextureButton"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("1_31dpd")
+texture_pressed = ExtResource("2_yryx1")
+texture_hover = ExtResource("3_uof8p")

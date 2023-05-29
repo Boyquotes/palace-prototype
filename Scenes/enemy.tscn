@@ -1,8 +1,52 @@
-[gd_scene load_steps=3 format=3 uid="uid://dhc1stpa52ni6"]
+[gd_scene load_steps=8 format=3 uid="uid://dhc1stpa52ni6"]
 
+[ext_resource type="Texture2D" uid="uid://bxjqkfbpwpbro" path="res://Assets/Sprites/hand_smaller-sheet.png" id="1_htk5c"]
 [ext_resource type="Texture2D" uid="uid://dx5ggr27ymaem" path="res://Assets/Sprites/hand_smaller.png" id="1_jtg63"]
 [ext_resource type="Script" path="res://Scenes/enemy.gd" id="2_x453i"]
 
-[node name="enemy" type="Sprite2D"]
-texture = ExtResource("1_jtg63")
+[sub_resource type="AtlasTexture" id="AtlasTexture_8v4t1"]
+atlas = ExtResource("1_htk5c")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u1pw4"]
+atlas = ExtResource("1_jtg63")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yjdkn"]
+atlas = ExtResource("1_htk5c")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m5n3n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8v4t1")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u1pw4")
+}],
+"loop": false,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yjdkn")
+}],
+"loop": false,
+"name": &"windup",
+"speed": 5.0
+}]
+
+[node name="enemy" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_m5n3n")
+animation = &"idle"
+autoplay = "idle"
 script = ExtResource("2_x453i")
+
+[connection signal="animation_finished" from="." to="." method="_on_animation_finished"]

@@ -1,9 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://dlq6ga43myb8d"]
+[gd_scene load_steps=3 format=3 uid="uid://bmmh5o74gdvl3"]
 
 [ext_resource type="Script" path="res://Scenes/action_button.gd" id="1_2aecf"]
-[ext_resource type="Theme" uid="uid://enige5dquqlv" path="res://Resources/Themes/action_button.tres" id="1_e2lo1"]
+[ext_resource type="Theme" uid="uid://pcur2i10xi8k" path="res://Resources/Themes/Avatar Actions/avatar_jumpattack_button.tres" id="1_ew8vj"]
 
 [node name="ActionButton" type="Button"]
+custom_minimum_size = Vector2(34, 34)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -12,8 +13,7 @@ offset_bottom = -280.0
 grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 0
-theme = ExtResource("1_e2lo1")
-text = "move!"
+theme = ExtResource("1_ew8vj")
 script = ExtResource("1_2aecf")
 
 [connection signal="pressed" from="." to="." method="_on_pressed"]

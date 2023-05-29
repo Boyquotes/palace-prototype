@@ -7,6 +7,7 @@ extends Node2D
 
 const TILE_SCENE = preload("tile.tscn")
 enum MODES {GRID_SELECT, ACTION_SELECT, WATCH_PHASE}
+enum PHASES {PLAYER, ENEMY}
 
 @onready var player_unit = $Units/avatar
 @onready var enemy_unit = $Enemies/enemy
@@ -14,6 +15,7 @@ enum MODES {GRID_SELECT, ACTION_SELECT, WATCH_PHASE}
 var _grid : Grid
 
 var current_mode = MODES.GRID_SELECT
+var current_phase = PHASES.PLAYER
 var selected_action : Action
 var selected_tile
 var selected_unit
@@ -29,6 +31,7 @@ func _ready():
 	SignalBus.activate_grid.connect(_on_Activate_Grid)
 	
 	_grid = Grid.new(Vector2(7,4), Vector2(25,25))
+	Global.grid = _grid
 	
 	for i in _grid.size.x:
 		for j in _grid.size.y:
@@ -50,6 +53,9 @@ func _ready():
 	Global.units[player_unit.grid_pos] = player_unit
 	Global.enemies[enemy_unit.grid_pos] = enemy_unit
 	
+	for enemy in Global.enemies.values():
+		enemy.make_decision()
+	
 	initialize_buttons()
 
 func initialize_buttons():
@@ -58,7 +64,7 @@ func initialize_buttons():
 			var new_button = load('res://Scenes/action_button.tscn').instantiate()
 			new_button.action = action
 			new_button.theme = action.button_theme
-			new_button.text = action.name
+			#new_button.text = action.name
 			button_dict[action] = new_button
 			$Buttons/HFlowContainer.add_child(new_button)
 			
@@ -79,8 +85,24 @@ func select_unit(unit):
 	$Buttons.visible = true
 	selected_unit = unit
 
+# is now 'on phase end'
 func _on_Activate_Grid():
-	current_mode = MODES.GRID_SELECT
+	match current_phase:
+		PHASES.PLAYER:
+			current_phase = PHASES.ENEMY
+			for enemy in Global.enemies.values():
+				if enemy:
+					enemy.execute_decision()
+				
+		PHASES.ENEMY:
+			current_phase = PHASES.PLAYER
+			current_mode = MODES.GRID_SELECT
+			
+			for enemy in Global.enemies.values():
+				if enemy:
+					enemy.make_decision()
+	
+	
 
 func _on_Tile_Selected(tile):
 	match current_mode:

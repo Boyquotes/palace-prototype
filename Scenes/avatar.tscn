@@ -313,6 +313,6 @@ animations = [{
 
 [node name="avatar" type="AnimatedSprite2D" groups=["Units"]]
 sprite_frames = SubResource("SpriteFrames_2yxp0")
-animation = &"idle"
+animation = &"punch"
 autoplay = "idle"
 script = ExtResource("2_1sq1o")

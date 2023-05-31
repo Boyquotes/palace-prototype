@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cnbsxh1w6b57v"]
+
+[ext_resource type="Script" path="res://Autoload/bgm.gd" id="1_xelmh"]
+
+[node name="BGM" type="AudioStreamPlayer"]
+bus = &"Music"
+script = ExtResource("1_xelmh")

@@ -20,6 +20,8 @@ var _tween : Tween
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	if !unit_info:
+		unit_info = UnitInfo.new(100)
 	animation = &"idle"
 
 # need different trajectories depending on jump or run
@@ -71,6 +73,9 @@ func perform_action(action, _grid_pos):
 			Global.units[tile.grid_pos] = self
 			grid_pos = tile.grid_pos
 			
+			if Global.enemies[_grid_pos]:
+				attack(Global.enemies[_grid_pos])
+			
 		ACTIONS.LAND:
 			state = Constants.UNIT_STATES.IDLE
 			frame = 0
@@ -86,6 +91,8 @@ func perform_action(action, _grid_pos):
 			frame = 0
 			play("punch")
 			await animation_finished
+			if Global.enemies[_grid_pos]:
+				attack(Global.enemies[_grid_pos])
 			SignalBus.emit_signal('activate_grid')
 
 func available_actions():
@@ -115,3 +122,10 @@ func move_straight(new_pos, speed):
 
 func move_parabolic(new_pos):
 	pass
+	
+# attack and deal damage
+func attack(target):
+	target.take_damage(40)
+	
+func take_damage(source):
+	unit_info.health -= source

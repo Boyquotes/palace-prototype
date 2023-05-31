@@ -43,6 +43,7 @@ func _ready():
 			
 			Global.grid_to_tile[Vector2(i, j)] = new_tile
 			Global.units[Vector2(i, j)] = null
+			Global.enemies[Vector2(i, j)] = null
 			
 	player_unit.grid_pos = Vector2(1, 3)
 	enemy_unit.grid_pos = Vector2(6, 3)
@@ -54,9 +55,14 @@ func _ready():
 	Global.enemies[enemy_unit.grid_pos] = enemy_unit
 	
 	for enemy in Global.enemies.values():
-		enemy.make_decision()
+		if enemy:
+			enemy.make_decision()
 	
 	initialize_buttons()
+	$UI/enemy_info_ui.unit_info = enemy_unit.enemy_info
+	$UI/unit_info_ui.unit_info = player_unit.unit_info
+	$UI/enemy_info_ui.initialize()
+	$UI/unit_info_ui.initialize()
 
 func initialize_buttons():
 	for unit in $Units.get_children():

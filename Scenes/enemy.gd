@@ -14,12 +14,14 @@ var grid_pos : Vector2
 var AI = preload("res://Resources/EnemyAI/EnemyAIBasic.gd").new()
 
 var current_state = STATES.IDLE
+var enemy_info : UnitInfo
 var decision : EnemyDecision
 
 var _tween : Tween
 
 func _ready():
-	pass
+	if !enemy_info:
+		enemy_info = UnitInfo.new(60)
 
 # make decision to display to player
 func make_decision():
@@ -73,6 +75,8 @@ func execute_decision():
 			if current_state == STATES.WINDUP:
 				current_state = STATES.IDLE
 				play("attack")
+				if Global.units[grid_pos]:
+					attack(Global.units[grid_pos])
 			else:
 				current_state = STATES.WINDUP
 				play("windup")
@@ -88,11 +92,11 @@ func move_straight(new_pos, speed):
 	_tween.tween_callback(emit_signal.bind('continue_action'))
 
 # deal and take damage
-func attack():
-	pass
+func attack(target):
+	target.take_damage(20)
 	
-func take_damage():
-	pass
+func take_damage(source):
+	enemy_info.health -= source
 
 
 func _on_animation_finished():

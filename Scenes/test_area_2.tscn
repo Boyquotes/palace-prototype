@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bn0lik8mvqxjj"]
+[gd_scene load_steps=6 format=3 uid="uid://bn0lik8mvqxjj"]
 
 [ext_resource type="Script" path="res://Scenes/test_area_2.gd" id="1_xsypj"]
 [ext_resource type="PackedScene" uid="uid://c2g18evrp28qx" path="res://Scenes/avatar.tscn" id="2_826df"]
 [ext_resource type="Texture2D" uid="uid://yih5c8q4txc8" path="res://Assets/Sprites/background.png" id="4_kn3kx"]
 [ext_resource type="PackedScene" uid="uid://dhc1stpa52ni6" path="res://Scenes/enemy.tscn" id="4_q3otb"]
+[ext_resource type="PackedScene" uid="uid://cviru8ahpq2r5" path="res://Scenes/unit_info_ui.tscn" id="5_bk8iw"]
 
 [node name="test_area2" type="Node2D"]
 script = ExtResource("1_xsypj")
@@ -31,7 +32,6 @@ z_index = -1
 [node name="enemy" parent="Enemies" instance=ExtResource("4_q3otb")]
 
 [node name="Buttons" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 640.0
@@ -44,3 +44,29 @@ offset_left = 166.0
 offset_top = 262.0
 offset_right = 466.0
 offset_bottom = 302.0
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 640.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="unit_info_ui" parent="UI" instance=ExtResource("5_bk8iw")]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 1
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="enemy_info_ui" parent="UI" instance=ExtResource("5_bk8iw")]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_bottom = 0.0
+offset_left = -46.0
+offset_right = -46.0
+grow_horizontal = 0
+grow_vertical = 1

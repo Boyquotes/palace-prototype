@@ -24,6 +24,7 @@ var button_dict = {}
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	Bgm.play_song('mysterious_loop.ogg')
 	
 	# connect signals
 	SignalBus.tile_selected.connect(_on_Tile_Selected)
@@ -133,6 +134,7 @@ func _on_Tile_Selected(tile):
 		MODES.ACTION_SELECT:
 			
 			if tile.available:
+				Global.play_sfx('blip2.wav')
 				current_mode = MODES.WATCH_PHASE
 				selected_tile.deselect()
 				selected_tile = null

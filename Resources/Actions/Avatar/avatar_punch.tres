@@ -7,7 +7,7 @@
 resource_local_to_scene = true
 script = ExtResource("1_pavlr")
 name = "punch"
-range = [Vector2(1, 0), Vector2(0, 0)]
+range = [Vector2(1, 0), Vector2(0, 0), Vector2(-1, 0)]
 type = 1
 button_theme = ExtResource("1_4ntx1")
 speed = 1

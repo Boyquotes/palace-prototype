@@ -19,6 +19,7 @@ config/icon="res://Assets/Sprites/hand.png"
 Global="*res://Autoload/Global.gd"
 SignalBus="*res://Autoload/SignalBus.gd"
 Constants="*res://Autoload/Constants.gd"
+Bgm="*res://Autoload/bgm.tscn"
 
 [display]
 

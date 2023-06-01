@@ -125,7 +125,9 @@ func move_parabolic(new_pos):
 	
 # attack and deal damage
 func attack(target):
+	Global.play_sfx('hit.wav')
 	target.take_damage(40)
 	
 func take_damage(source):
+	#Global.play_sfx('hit.wav')
 	unit_info.health -= source

@@ -3,5 +3,6 @@
 [ext_resource type="Script" path="res://Autoload/bgm.gd" id="1_xelmh"]
 
 [node name="BGM" type="AudioStreamPlayer"]
+volume_db = -9.0
 bus = &"Music"
 script = ExtResource("1_xelmh")
